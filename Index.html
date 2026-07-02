@@ -789,12 +789,8 @@
               <p>Leave your info and tell us what you want from a New Tampa strength gym.</p>
             </div>
 
-            <!--
-              Static site form note:
-              For GitHub Pages, connect this form to a service like Formspree, Basin, Getform, or your CRM.
-              Replace the action below with your form endpoint when ready.
-            -->
-            <form id="interestForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- Formspree endpoint connected for GitHub Pages submissions. -->
+            <form id="interestForm" action="https://formspree.io/f/xbdvpapo" method="POST">
               <div class="form-row">
                 <label>
                   Name
@@ -857,14 +853,6 @@
 
     form.addEventListener('submit', async function (event) {
       const action = form.getAttribute('action');
-
-      // Prevent accidental submissions before a real form endpoint is added.
-      if (action.includes('YOUR_FORM_ID')) {
-        event.preventDefault();
-        successMsg.textContent = 'Form is ready. Replace YOUR_FORM_ID with your real form endpoint to collect submissions.';
-        successMsg.classList.add('show');
-        return;
-      }
 
       event.preventDefault();
       const data = new FormData(form);
