@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Iron Krewe is a strength training gym coming to New Tampa, built for serious lifters, bodybuilders, powerlifters, and everyday athletes." />
+  <meta name="theme-color" content="#05070b" />
+
+  <title>Iron Krewe | New Tampa Strength Gym</title>
+
+  <!--
+    Google Tag Manager placeholder:
+    Replace GTM-XXXXXXX with your real GTM container ID when ready.
+  -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: #0b1018;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f7f8fb;
+      --muted: #b8c0cc;
+      --blue: #0ea5ff;
+      --blue-dark: #075d9a;
+      --yellow: #ffd21f;
+      --yellow-dark: #c99a00;
+      --danger: #ff5d5d;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(14, 165, 255, 0.22), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255, 210, 31, 0.16), transparent 26%),
+        linear-gradient(180deg, #05070b 0%, #070a10 44%, #030406 100%);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img, svg { max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      min-height: 100vh;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .page-wrap::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 80%);
+      z-index: -1;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -120px;
+      background: var(--yellow);
+      color: #05070b;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 100;
+      font-weight: 800;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 7, 11, 0.76);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #05070b;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--yellow), #fff06a 45%, var(--blue));
+      box-shadow: 0 0 28px rgba(14, 165, 255, 0.25);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--yellow), #ffe978);
+      color: #070a10;
+      box-shadow: 0 16px 34px rgba(255, 210, 31, 0.22);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero {
+      padding: 52px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 20px var(--blue);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.55rem, 11vw, 6.4rem);
+      line-height: .89;
+      letter-spacing: -0.075em;
+      text-transform: uppercase;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, var(--text), var(--blue) 46%, var(--yellow));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2.5vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 26px 0 22px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .trust-pill {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--muted);
+      font-weight: 800;
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .trust-pill strong { color: var(--text); }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: calc(var(--radius) + 8px);
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(14,165,255,.18), rgba(255,210,31,.13)),
+        rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% -25% auto auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(14,165,255,.28);
+      filter: blur(24px);
+      z-index: -1;
+    }
+
+    .hero-visual {
+      min-height: 410px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.58), rgba(0,0,0,.16)),
+        radial-gradient(circle at 35% 25%, rgba(255,210,31,.38), transparent 22%),
+        radial-gradient(circle at 74% 30%, rgba(14,165,255,.45), transparent 26%),
+        linear-gradient(145deg, #101827, #05070b 66%);
+      border: 1px solid rgba(255,255,255,.12);
+      display: grid;
+      align-content: end;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border: 18px solid rgba(255,255,255,.08);
+      transform: rotate(-16deg);
+      border-radius: 999px;
+    }
+
+    .hero-visual::before {
+      width: 230px;
+      height: 230px;
+      right: -72px;
+      top: 54px;
+    }
+
+    .hero-visual::after {
+      width: 330px;
+      height: 86px;
+      left: -90px;
+      top: 138px;
+      border-color: rgba(14,165,255,.22);
+    }
+
+    .plate-stack {
+      position: absolute;
+      right: 16px;
+      bottom: 18px;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      border: 20px solid rgba(255,210,31,.92);
+      box-shadow: inset 0 0 0 14px rgba(0,0,0,.42), 0 0 38px rgba(255,210,31,.2);
+      opacity: .9;
+    }
+
+    .hero-visual-content {
+      position: relative;
+      z-index: 2;
+      max-width: 360px;
+    }
+
+    .hero-visual h2 {
+      margin-bottom: 8px;
+      font-size: clamp(2rem, 9vw, 3.55rem);
+      line-height: .92;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+
+    .hero-visual p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-weight: 900;
+      font-size: .78rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 690px;
+      margin-bottom: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      min-height: 170px;
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: rgba(14,165,255,.14);
+      color: var(--blue);
+      font-weight: 950;
+      font-size: 1.35rem;
+    }
+
+    .feature-card:nth-child(even) .feature-icon {
+      background: rgba(255,210,31,.14);
+      color: var(--yellow);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .band {
+      margin: 28px 0 0;
+      border-radius: calc(var(--radius) + 6px);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      background:
+        linear-gradient(90deg, rgba(14,165,255,.24), rgba(255,210,31,.16)),
+        rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .band-inner {
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      align-items: center;
+    }
+
+    .band h2 {
+      font-size: clamp(1.9rem, 8vw, 4.4rem);
+    }
+
+    .band p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+
+    .form-wrap {
+      display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .form-card {
+      padding: 22px;
+      border-radius: calc(var(--radius) + 8px);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 14px;
+      background: rgba(3,4,6,.72);
+      color: var(--text);
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(14,165,255,.16);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fine-print {
+      margin: 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .success {
+      display: none;
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: rgba(14,165,255,.12);
+      border: 1px solid rgba(14,165,255,.3);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .success.show { display: block; }
+
+    .location-card {
+      padding: 22px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255,210,31,.14), transparent 30%),
+        rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .location-card h3 {
+      font-size: 1.65rem;
+      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+
+    .location-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .mini-list li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-top: 8px;
+      background: var(--yellow);
+      flex: 0 0 auto;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.09);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .footer-inner strong { color: var(--text); }
+
+    @media (min-width: 560px) {
+      .hero-actions {
+        flex-direction: row;
+      }
+
+      .trust-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .form-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 780px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero {
+        padding: 78px 0 52px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.05fr .95fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .band-inner {
+        grid-template-columns: 1fr auto;
+        padding: 34px;
+      }
+
+      .form-wrap {
+        grid-template-columns: .85fr 1.15fr;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager no-script placeholder. Replace GTM-XXXXXXX with your real container ID. -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page-wrap">
+    <a class="skip-link" href="#interest">Skip to interest form</a>
+
+    <header>
+      <div class="container nav" aria-label="Primary navigation">
+        <a href="#top" class="brand" aria-label="Iron Krewe home">
+          <span class="brand-mark">IK</span>
+          <span>Iron Krewe</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Site links">
+          <a href="#training">Training</a>
+          <a href="#location">Location</a>
+          <a href="#interest">Join Interest List</a>
+        </nav>
+
+        <a class="btn btn-primary" href="#interest">Get Updates</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">New Tampa Strength Gym</span>
+            <h1>Built for <span class="text-gradient">serious strength.</span></h1>
+            <p class="hero-copy">
+              Iron Krewe is a strength training gym coming to New Tampa for lifters who want better equipment, stronger community, and a place built around real progress.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#interest">Join the Interest List</a>
+              <a class="btn btn-secondary" href="#training">See What’s Coming</a>
+            </div>
+
+            <div class="trust-row" aria-label="Gym highlights">
+              <div class="trust-pill"><span class="dot"></span><span><strong>Strength</strong> focused</span></div>
+              <div class="trust-pill"><span class="dot"></span><span><strong>New Tampa</strong> location</span></div>
+              <div class="trust-pill"><span class="dot"></span><span><strong>Founding</strong> member updates</span></div>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Iron Krewe gym preview graphic">
+            <div class="hero-visual">
+              <div class="plate-stack" aria-hidden="true"></div>
+              <div class="hero-visual-content">
+                <h2>Train hard. Move better.</h2>
+                <p>Premium strength equipment, old-school intensity, and a no-fluff training environment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="training">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">What to expect</span>
+            <h2>Strength training without the commercial gym feel.</h2>
+            <p>
+              A focused training environment for bodybuilding, powerlifting, general strength, and people who are serious about reaching their fitness goals.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">01</div>
+              <h3>Hand-picked equipment</h3>
+              <p>Equipment selected with biomechanics, ergonomics, and real training outcomes in mind.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">02</div>
+              <h3>Built for lifters</h3>
+              <p>Designed for strength training, bodybuilding, powerlifting, and serious everyday athletes.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">03</div>
+              <h3>Founding member list</h3>
+              <p>Join early to get launch updates, founding membership details, and first access announcements.</p>
+            </article>
+          </div>
+
+          <div class="band">
+            <div class="band-inner">
+              <div>
+                <span class="section-kicker">Coming to New Tampa</span>
+                <h2>Actually reach your fitness goals.</h2>
+                <p>Get launch updates and early access details as Iron Krewe gets closer to opening.</p>
+              </div>
+              <a class="btn btn-primary" href="#interest">I’m Interested</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="location">
+        <div class="container form-wrap">
+          <aside class="location-card">
+            <span class="section-kicker">Location</span>
+            <h3>New Tampa, Florida</h3>
+            <p>
+              Iron Krewe is being built for the New Tampa community and surrounding areas looking for a serious strength training option.
+            </p>
+            <ul class="mini-list">
+              <li>Strength-first gym experience</li>
+              <li>For professionals, enthusiasts, and goal-driven beginners</li>
+              <li>Launch updates sent to the interest list first</li>
+            </ul>
+          </aside>
+
+          <section class="form-card" id="interest" aria-labelledby="interest-title">
+            <div class="section-head">
+              <span class="section-kicker">Interest form</span>
+              <h2 id="interest-title">Join the Iron Krewe list.</h2>
+              <p>Leave your info and tell us what you want from a New Tampa strength gym.</p>
+            </div>
+
+            <!--
+              Static site form note:
+              For GitHub Pages, connect this form to a service like Formspree, Basin, Getform, or your CRM.
+              Replace the action below with your form endpoint when ready.
+            -->
+            <form id="interestForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="form-row">
+                <label>
+                  Name
+                  <input name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                </label>
+
+                <label>
+                  Email
+                  <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Phone
+                  <input name="phone" type="tel" autocomplete="tel" placeholder="Optional" />
+                </label>
+
+                <label>
+                  Main goal
+                  <select name="goal" required>
+                    <option value="">Select one</option>
+                    <option>Build muscle</option>
+                    <option>Get stronger</option>
+                    <option>Powerlifting</option>
+                    <option>Bodybuilding</option>
+                    <option>General fitness</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                What would make Iron Krewe a gym you would join?
+                <textarea name="message" placeholder="Equipment, amenities, hours, coaching, pricing, community, etc."></textarea>
+              </label>
+
+              <input type="hidden" name="source" value="Iron Krewe landing page" />
+
+              <button class="btn btn-primary" type="submit">Submit Interest</button>
+              <p class="fine-print">No spam. Just launch updates, early access details, and founding membership info.</p>
+              <div class="success" id="successMsg" role="status">Thanks — your interest has been recorded.</div>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div><strong>Iron Krewe</strong> — New Tampa Strength Gym</div>
+        <div>Built for strength. Designed for progress.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.querySelector('#interestForm');
+    const successMsg = document.querySelector('#successMsg');
+
+    form.addEventListener('submit', async function (event) {
+      const action = form.getAttribute('action');
+
+      // Prevent accidental submissions before a real form endpoint is added.
+      if (action.includes('YOUR_FORM_ID')) {
+        event.preventDefault();
+        successMsg.textContent = 'Form is ready. Replace YOUR_FORM_ID with your real form endpoint to collect submissions.';
+        successMsg.classList.add('show');
+        return;
+      }
+
+      event.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMsg.textContent = 'Thanks — your interest has been recorded.';
+          successMsg.classList.add('show');
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'iron_krewe_interest_submit' });
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        successMsg.textContent = 'Something went wrong. Please try again or check your form endpoint.';
+        successMsg.classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>
