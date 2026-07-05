@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Iron Krewe is a strength training gym coming to New Tampa, built for serious lifters, bodybuilders, powerlifters, and everyday athletes." />
-  <meta name="theme-color" content="#05070b" />
+  <title>Iron Krewe | New Tampa Strength Training Gym</title>
+  <meta name="description" content="Iron Krewe is a strength training gym coming to New Tampa, built for serious lifters, bodybuilders, powerlifters, and fitness enthusiasts." />
+  <meta name="theme-color" content="#080808" />
 
-  <title>Iron Krewe | New Tampa Strength Gym</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Iron Krewe | New Tampa Strength Training Gym" />
+  <meta property="og:description" content="A strength-first gym coming to New Tampa. Join the interest list for founding member updates." />
+  <meta property="og:type" content="website" />
 
   <!--
-    Google Tag Manager placeholder:
-    Replace GTM-XXXXXXX with your real GTM container ID when ready.
+    Google Tag Manager
+    Replace GTM-XXXXXXX with your real container ID.
   -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -22,23 +26,23 @@
 
   <style>
     :root {
-      --bg: #05070b;
-      --bg-soft: #0b1018;
-      --card: rgba(255, 255, 255, 0.07);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f7f8fb;
-      --muted: #b8c0cc;
-      --blue: #0ea5ff;
-      --blue-dark: #075d9a;
-      --yellow: #ffd21f;
-      --yellow-dark: #c99a00;
-      --danger: #ff5d5d;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
-      --radius: 22px;
+      --black: #080808;
+      --black-2: #111111;
+      --charcoal: #191919;
+      --red: #e52626;
+      --orange: #ff7a18;
+      --orange-2: #ff9a3d;
+      --text: #f8f4ee;
+      --muted: #b8afa7;
+      --line: rgba(255, 255, 255, 0.13);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      --radius: 24px;
       --max: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -46,98 +50,83 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 18% 8%, rgba(14, 165, 255, 0.22), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(255, 210, 31, 0.16), transparent 26%),
-        linear-gradient(180deg, #05070b 0%, #070a10 44%, #030406 100%);
+      font-family: Tahoma, Verdana, Segoe UI, sans-serif;
       color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(229, 38, 38, 0.28), transparent 30%),
+        radial-gradient(circle at 85% 5%, rgba(255, 122, 24, 0.22), transparent 28%),
+        linear-gradient(180deg, #050505 0%, var(--black) 42%, #0e0e0e 100%);
+      min-height: 100vh;
     }
 
-    img, svg { max-width: 100%; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 78%);
+      z-index: -1;
+    }
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    .page-wrap {
-      min-height: 100vh;
-      position: relative;
-      isolation: isolate;
-    }
-
-    .page-wrap::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 80%);
-      z-index: -1;
+    img, svg {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
       width: min(100% - 32px, var(--max));
-      margin: 0 auto;
+      margin-inline: auto;
     }
 
-    .skip-link {
-      position: absolute;
-      left: 12px;
-      top: -120px;
-      background: var(--yellow);
-      color: #05070b;
-      padding: 10px 14px;
-      border-radius: 999px;
-      z-index: 100;
-      font-weight: 800;
-    }
-
-    .skip-link:focus { top: 12px; }
-
-    header {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(5, 7, 11, 0.76);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 8, 8, 0.72);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 14px 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      white-space: nowrap;
+      line-height: 1;
     }
 
-    .brand-mark {
+    .mark {
       width: 42px;
       height: 42px;
-      border-radius: 12px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      color: #05070b;
-      font-weight: 950;
-      background: linear-gradient(135deg, var(--yellow), #fff06a 45%, var(--blue));
-      box-shadow: 0 0 28px rgba(14, 165, 255, 0.25);
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(229,38,38,0.95), rgba(255,122,24,0.9)),
+        #161616;
+      box-shadow: 0 12px 30px rgba(229, 38, 38, 0.32);
+      font-size: 20px;
+      font-weight: 900;
     }
 
     .nav-links {
@@ -145,25 +134,28 @@
       align-items: center;
       gap: 22px;
       color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 14px;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       min-height: 48px;
-      padding: 13px 18px;
+      padding: 14px 20px;
       border-radius: 999px;
       border: 1px solid transparent;
-      cursor: pointer;
       font-weight: 900;
-      letter-spacing: 0.01em;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      touch-action: manipulation;
     }
 
     .btn:hover {
@@ -171,19 +163,19 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--yellow), #ffe978);
-      color: #070a10;
-      box-shadow: 0 16px 34px rgba(255, 210, 31, 0.22);
+      color: #160704;
+      background: linear-gradient(135deg, var(--orange), var(--red));
+      box-shadow: 0 16px 38px rgba(229, 38, 38, 0.36);
     }
 
     .btn-secondary {
       color: var(--text);
-      border-color: rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--line);
     }
 
     .hero {
-      padding: 52px 0 34px;
+      padding: 54px 0 34px;
     }
 
     .hero-grid {
@@ -195,296 +187,234 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       padding: 8px 12px;
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255, 122, 24, 0.35);
       border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
-      font-size: 0.88rem;
+      color: var(--orange-2);
+      background: rgba(255, 122, 24, 0.08);
+      font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 20px var(--blue);
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--orange);
+      box-shadow: 0 0 20px var(--orange);
     }
-
-    h1, h2, h3, p { margin-top: 0; }
 
     h1 {
       margin: 18px 0 16px;
-      font-size: clamp(2.55rem, 11vw, 6.4rem);
-      line-height: .89;
-      letter-spacing: -0.075em;
+      max-width: 860px;
+      font-size: clamp(42px, 11vw, 92px);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
       text-transform: uppercase;
     }
 
-    .text-gradient {
-      background: linear-gradient(90deg, var(--text), var(--blue) 46%, var(--yellow));
+    .gradient-text {
+      background: linear-gradient(135deg, var(--text) 10%, var(--orange) 48%, var(--red) 88%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-copy {
-      max-width: 680px;
+      margin: 0;
+      max-width: 700px;
       color: var(--muted);
-      font-size: clamp(1.02rem, 2.5vw, 1.25rem);
+      font-size: clamp(17px, 3.8vw, 22px);
+      line-height: 1.55;
     }
 
     .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 26px 0 22px;
-    }
-
-    .trust-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .trust-pill {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      color: var(--muted);
-      font-weight: 800;
-      display: flex;
-      gap: 9px;
-      align-items: center;
-    }
-
-    .trust-pill strong { color: var(--text); }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      background: var(--yellow);
+      gap: 12px;
+      margin-top: 26px;
     }
 
     .hero-card {
       position: relative;
-      border-radius: calc(var(--radius) + 8px);
-      padding: 18px;
-      background:
-        linear-gradient(135deg, rgba(14,165,255,.18), rgba(255,210,31,.13)),
-        rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.13);
-      box-shadow: var(--shadow);
       overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40% -25% auto auto;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(14,165,255,.28);
-      filter: blur(24px);
-      z-index: -1;
-    }
-
-    .hero-visual {
-      min-height: 410px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       background:
-        linear-gradient(135deg, rgba(0,0,0,.58), rgba(0,0,0,.16)),
-        radial-gradient(circle at 35% 25%, rgba(255,210,31,.38), transparent 22%),
-        radial-gradient(circle at 74% 30%, rgba(14,165,255,.45), transparent 26%),
-        linear-gradient(145deg, #101827, #05070b 66%);
-      border: 1px solid rgba(255,255,255,.12);
-      display: grid;
-      align-content: end;
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
+        var(--black-2);
+      box-shadow: var(--shadow);
+      min-height: 360px;
     }
 
-    .hero-visual::before,
-    .hero-visual::after {
+    .plate {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -110px;
+      top: -70px;
+      border-radius: 50%;
+      border: 42px solid rgba(255, 122, 24, 0.35);
+      outline: 2px solid rgba(255,255,255,0.09);
+      box-shadow: inset 0 0 0 42px rgba(229, 38, 38, 0.12), 0 0 90px rgba(255, 122, 24, 0.22);
+    }
+
+    .barbell {
+      position: absolute;
+      width: 86%;
+      height: 14px;
+      left: 7%;
+      top: 46%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2b2b2b, #f7eee6 48%, #2b2b2b);
+      transform: rotate(-10deg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .barbell::before,
+    .barbell::after {
       content: "";
       position: absolute;
-      border: 18px solid rgba(255,255,255,.08);
-      transform: rotate(-16deg);
-      border-radius: 999px;
+      top: 50%;
+      width: 64px;
+      height: 110px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      transform: translateY(-50%);
+      box-shadow: 0 12px 28px rgba(229, 38, 38, 0.35);
     }
 
-    .hero-visual::before {
-      width: 230px;
-      height: 230px;
-      right: -72px;
-      top: 54px;
-    }
+    .barbell::before { left: -8px; }
+    .barbell::after { right: -8px; }
 
-    .hero-visual::after {
-      width: 330px;
-      height: 86px;
-      left: -90px;
-      top: 138px;
-      border-color: rgba(14,165,255,.22);
-    }
-
-    .plate-stack {
-      position: absolute;
-      right: 16px;
-      bottom: 18px;
-      width: 118px;
-      height: 118px;
-      border-radius: 50%;
-      border: 20px solid rgba(255,210,31,.92);
-      box-shadow: inset 0 0 0 14px rgba(0,0,0,.42), 0 0 38px rgba(255,210,31,.2);
-      opacity: .9;
-    }
-
-    .hero-visual-content {
+    .hero-card-content {
       position: relative;
       z-index: 2;
-      max-width: 360px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(0,0,0,0.92), transparent 70%);
     }
 
-    .hero-visual h2 {
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--orange-2);
+      font-size: 20px;
+      line-height: 1;
       margin-bottom: 8px;
-      font-size: clamp(2rem, 9vw, 3.55rem);
-      line-height: .92;
-      letter-spacing: -.055em;
-      text-transform: uppercase;
     }
 
-    .hero-visual p {
+    .stat span {
       color: var(--muted);
-      margin-bottom: 0;
-      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.35;
     }
 
-    .section {
-      padding: 44px 0;
+    section {
+      padding: 42px 0;
     }
 
     .section-head {
       display: grid;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 22px;
     }
 
-    .section-kicker {
-      color: var(--yellow);
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      font-weight: 900;
-      font-size: .78rem;
-    }
-
     h2 {
-      font-size: clamp(2rem, 7vw, 4rem);
-      line-height: .95;
-      letter-spacing: -.06em;
-      margin-bottom: 0;
+      margin: 0;
+      font-size: clamp(30px, 7vw, 56px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
     }
 
     .section-head p {
+      margin: 0;
+      max-width: 720px;
       color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 690px;
-      margin-bottom: 0;
+      font-size: 17px;
+      line-height: 1.55;
     }
 
-    .feature-grid {
+    .features {
       display: grid;
       gap: 14px;
     }
 
-    .feature-card {
+    .feature {
       padding: 22px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      min-height: 170px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.055);
     }
 
     .feature-icon {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
       display: grid;
       place-items: center;
       margin-bottom: 18px;
-      background: rgba(14,165,255,.14);
-      color: var(--blue);
-      font-weight: 950;
-      font-size: 1.35rem;
+      background: linear-gradient(135deg, rgba(229,38,38,0.95), rgba(255,122,24,0.95));
+      color: #180706;
+      font-weight: 900;
     }
 
-    .feature-card:nth-child(even) .feature-icon {
-      background: rgba(255,210,31,.14);
-      color: var(--yellow);
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
     }
 
-    .feature-card h3 {
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-
-    .feature-card p {
-      margin-bottom: 0;
+    .feature p {
+      margin: 0;
       color: var(--muted);
+      line-height: 1.55;
     }
 
-    .band {
-      margin: 28px 0 0;
-      border-radius: calc(var(--radius) + 6px);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.13);
-      background:
-        linear-gradient(90deg, rgba(14,165,255,.24), rgba(255,210,31,.16)),
-        rgba(255,255,255,.06);
-      box-shadow: var(--shadow);
-    }
-
-    .band-inner {
+    .split {
       display: grid;
-      gap: 18px;
-      padding: 24px;
-      align-items: center;
-    }
-
-    .band h2 {
-      font-size: clamp(1.9rem, 8vw, 4.4rem);
-    }
-
-    .band p {
-      color: var(--muted);
-      margin-bottom: 0;
-      font-weight: 700;
-    }
-
-    .form-wrap {
-      display: grid;
-      gap: 22px;
+      gap: 24px;
       align-items: start;
     }
 
     .form-card {
-      padding: 22px;
-      border-radius: calc(var(--radius) + 8px);
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255, 122, 24, 0.28);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(160deg, rgba(229,38,38,0.14), rgba(255,122,24,0.08)),
+        rgba(255,255,255,0.055);
       box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .form-card h2 {
+      font-size: clamp(30px, 7vw, 46px);
+    }
+
+    .form-card p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 12px 0 20px;
     }
 
     form {
@@ -495,389 +425,344 @@
     label {
       display: grid;
       gap: 7px;
-      color: var(--muted);
-      font-size: .92rem;
+      color: var(--text);
+      font-size: 13px;
       font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
-      min-height: 48px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 14px;
-      background: rgba(3,4,6,.72);
+      min-height: 52px;
+      padding: 14px 15px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
       color: var(--text);
-      padding: 13px 14px;
+      background: rgba(0,0,0,0.38);
       font: inherit;
       outline: none;
     }
 
     textarea {
-      min-height: 104px;
+      min-height: 108px;
       resize: vertical;
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(14,165,255,.16);
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255, 122, 24, 0.14);
     }
 
-    .form-row {
-      display: grid;
-      gap: 14px;
+    ::placeholder {
+      color: rgba(248, 244, 238, 0.46);
     }
 
     .fine-print {
-      margin: 0;
       color: var(--muted);
-      font-size: .84rem;
+      font-size: 12px;
+      line-height: 1.45;
     }
-
-    .success {
-      display: none;
-      padding: 13px 14px;
-      border-radius: 14px;
-      background: rgba(14,165,255,.12);
-      border: 1px solid rgba(14,165,255,.3);
-      color: var(--text);
-      font-weight: 800;
-    }
-
-    .success.show { display: block; }
 
     .location-card {
-      padding: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      background:
-        radial-gradient(circle at 80% 10%, rgba(255,210,31,.14), transparent 30%),
-        rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
+      background: var(--black-2);
     }
 
-    .location-card h3 {
-      font-size: 1.65rem;
-      line-height: 1;
-      margin-bottom: 10px;
-      letter-spacing: -.035em;
+    .map-art {
+      min-height: 230px;
+      background:
+        radial-gradient(circle at 52% 45%, rgba(255,122,24,0.95) 0 7px, transparent 8px),
+        radial-gradient(circle at 52% 45%, rgba(255,122,24,0.22) 0 56px, transparent 57px),
+        linear-gradient(45deg, transparent 0 46%, rgba(229,38,38,0.34) 47% 51%, transparent 52%),
+        linear-gradient(-30deg, transparent 0 38%, rgba(255,255,255,0.09) 39% 41%, transparent 42%),
+        linear-gradient(120deg, transparent 0 58%, rgba(255,122,24,0.18) 59% 62%, transparent 63%),
+        #151515;
+      position: relative;
+    }
+
+    .map-art::after {
+      content: "New Tampa";
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .location-body {
+      padding: 22px;
+    }
+
+    .location-body h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
       text-transform: uppercase;
     }
 
-    .location-card p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .mini-list {
-      display: grid;
-      gap: 10px;
-      padding: 0;
+    .location-body p {
       margin: 0;
-      list-style: none;
-    }
-
-    .mini-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
       color: var(--muted);
-      font-weight: 700;
+      line-height: 1.55;
     }
 
-    .mini-list li::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      margin-top: 8px;
-      background: var(--yellow);
-      flex: 0 0 auto;
-    }
-
-    footer {
-      padding: 28px 0 36px;
+    .footer {
+      padding: 32px 0 46px;
       color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,.09);
+      border-top: 1px solid var(--line);
     }
 
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
+    .footer .container {
+      display: grid;
       gap: 8px;
-      align-items: flex-start;
-      justify-content: space-between;
     }
 
-    .footer-inner strong { color: var(--text); }
-
-    @media (min-width: 560px) {
-      .hero-actions {
-        flex-direction: row;
-      }
-
-      .trust-row {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .form-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .footer strong {
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    @media (min-width: 780px) {
+    .mobile-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(8, 8, 8, 0.86);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .mobile-cta .btn {
+      width: 100%;
+    }
+
+    @media (min-width: 720px) {
       .nav-links {
         display: flex;
       }
 
       .hero {
-        padding: 78px 0 52px;
+        padding: 84px 0 58px;
       }
 
       .hero-grid {
-        grid-template-columns: 1.05fr .95fr;
+        grid-template-columns: 1.06fr 0.94fr;
       }
 
-      .feature-grid {
+      .hero-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .features {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .band-inner {
-        grid-template-columns: 1fr auto;
-        padding: 34px;
+      .split {
+        grid-template-columns: 1.04fr 0.96fr;
       }
 
-      .form-wrap {
-        grid-template-columns: .85fr 1.15fr;
+      .form-card {
+        padding: 32px;
       }
 
-      .footer-inner {
-        flex-direction: row;
-        align-items: center;
+      .mobile-cta {
+        display: none;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .001ms !important;
+    @media (max-width: 719px) {
+      body {
+        padding-bottom: 84px;
+      }
+
+      .nav .btn {
+        display: none;
+      }
+
+      .brand span {
+        font-size: 14px;
+      }
+
+      .container {
+        width: min(100% - 24px, var(--max));
       }
     }
   </style>
 </head>
-
 <body>
-  <!-- Google Tag Manager no-script placeholder. Replace GTM-XXXXXXX with your real container ID. -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager noscript -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
-  <div class="page-wrap">
-    <a class="skip-link" href="#interest">Skip to interest form</a>
+  <header class="site-header">
+    <div class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Iron Krewe home">
+        <span class="mark">IK</span>
+        <span>Iron Krewe</span>
+      </a>
+      <nav class="nav-links" aria-label="Site links">
+        <a href="#training">Training</a>
+        <a href="#location">Location</a>
+        <a href="#interest">Interest Form</a>
+      </nav>
+      <a class="btn btn-primary" href="#interest">Join Interest List</a>
+    </div>
+  </header>
 
-    <header>
-      <div class="container nav" aria-label="Primary navigation">
-        <a href="#top" class="brand" aria-label="Iron Krewe home">
-          <span class="brand-mark">IK</span>
-          <span>Iron Krewe</span>
-        </a>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> New Tampa Strength Gym</div>
+          <h1>Built for <span class="gradient-text">Strength Training</span></h1>
+          <p class="hero-copy">
+            Iron Krewe is a strength-first gym coming to the New Tampa area, built for lifters who want serious equipment, focused training, and a no-fluff environment.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#interest">Get Founding Updates</a>
+            <a class="btn btn-secondary" href="#training">See What’s Coming</a>
+          </div>
+        </div>
 
-        <nav class="nav-links" aria-label="Site links">
-          <a href="#training">Training</a>
-          <a href="#location">Location</a>
-          <a href="#interest">Join Interest List</a>
-        </nav>
-
-        <a class="btn btn-primary" href="#interest">Get Updates</a>
+        <aside class="hero-card" aria-label="Iron Krewe gym concept preview">
+          <div class="plate"></div>
+          <div class="barbell"></div>
+          <div class="hero-card-content">
+            <div class="eyebrow"><span class="dot"></span> Interest List Open</div>
+            <div class="stat-row">
+              <div class="stat">
+                <strong>24/7</strong>
+                <span>Access planned for serious schedules</span>
+              </div>
+              <div class="stat">
+                <strong>Strength</strong>
+                <span>Powerlifting, bodybuilding, and performance</span>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
-    </header>
+    </section>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <span class="eyebrow">New Tampa Strength Gym</span>
-            <h1>Built for <span class="text-gradient">serious strength.</span></h1>
-            <p class="hero-copy">
-              Iron Krewe is a strength training gym coming to New Tampa for lifters who want better equipment, stronger community, and a place built around real progress.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#interest">Join the Interest List</a>
-              <a class="btn btn-secondary" href="#training">See What’s Coming</a>
-            </div>
-
-            <div class="trust-row" aria-label="Gym highlights">
-              <div class="trust-pill"><span class="dot"></span><span><strong>Strength</strong> focused</span></div>
-              <div class="trust-pill"><span class="dot"></span><span><strong>New Tampa</strong> location</span></div>
-              <div class="trust-pill"><span class="dot"></span><span><strong>Founding</strong> member updates</span></div>
-            </div>
-          </div>
-
-          <div class="hero-card" aria-label="Iron Krewe gym preview graphic">
-            <div class="hero-visual">
-              <div class="plate-stack" aria-hidden="true"></div>
-              <div class="hero-visual-content">
-                <h2>Train hard. Move better.</h2>
-                <p>Premium strength equipment, old-school intensity, and a no-fluff training environment.</p>
-              </div>
-            </div>
-          </div>
+    <section id="training">
+      <div class="container">
+        <div class="section-head">
+          <h2>Train with purpose.</h2>
+          <p>
+            A gym experience designed around better equipment, better flow, and a stronger community for people who are serious about progress.
+          </p>
         </div>
-      </section>
 
-      <section class="section" id="training">
-        <div class="container">
-          <div class="section-head">
-            <span class="section-kicker">What to expect</span>
-            <h2>Strength training without the commercial gym feel.</h2>
-            <p>
-              A focused training environment for bodybuilding, powerlifting, general strength, and people who are serious about reaching their fitness goals.
-            </p>
-          </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">01</div>
+            <h3>Strength First</h3>
+            <p>Built around racks, free weights, plate-loaded machines, and equipment selected for real training.</p>
+          </article>
 
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-icon">01</div>
-              <h3>Hand-picked equipment</h3>
-              <p>Equipment selected with biomechanics, ergonomics, and real training outcomes in mind.</p>
-            </article>
+          <article class="feature">
+            <div class="feature-icon">02</div>
+            <h3>Bodybuilding Focus</h3>
+            <p>Equipment and layout planned for hypertrophy, powerlifting, accessory work, and serious progression.</p>
+          </article>
 
-            <article class="feature-card">
-              <div class="feature-icon">02</div>
-              <h3>Built for lifters</h3>
-              <p>Designed for strength training, bodybuilding, powerlifting, and serious everyday athletes.</p>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-icon">03</div>
-              <h3>Founding member list</h3>
-              <p>Join early to get launch updates, founding membership details, and first access announcements.</p>
-            </article>
-          </div>
-
-          <div class="band">
-            <div class="band-inner">
-              <div>
-                <span class="section-kicker">Coming to New Tampa</span>
-                <h2>Actually reach your fitness goals.</h2>
-                <p>Get launch updates and early access details as Iron Krewe gets closer to opening.</p>
-              </div>
-              <a class="btn btn-primary" href="#interest">I’m Interested</a>
-            </div>
-          </div>
+          <article class="feature">
+            <div class="feature-icon">03</div>
+            <h3>No-Fluff Atmosphere</h3>
+            <p>A focused environment for professionals, enthusiasts, and anyone ready to actually reach their goals.</p>
+          </article>
         </div>
-      </section>
-
-      <section class="section" id="location">
-        <div class="container form-wrap">
-          <aside class="location-card">
-            <span class="section-kicker">Location</span>
-            <h3>New Tampa, Florida</h3>
-            <p>
-              Iron Krewe is being built for the New Tampa community and surrounding areas looking for a serious strength training option.
-            </p>
-            <ul class="mini-list">
-              <li>Strength-first gym experience</li>
-              <li>For professionals, enthusiasts, and goal-driven beginners</li>
-              <li>Launch updates sent to the interest list first</li>
-            </ul>
-          </aside>
-
-          <section class="form-card" id="interest" aria-labelledby="interest-title">
-            <div class="section-head">
-              <span class="section-kicker">Interest form</span>
-              <h2 id="interest-title">Join the Iron Krewe list.</h2>
-              <p>Leave your info and tell us what you want from a New Tampa strength gym.</p>
-            </div>
-
-            <!-- Formspree endpoint connected for GitHub Pages submissions. -->
-            <form id="interestForm" action="https://formspree.io/f/xbdvpapo" method="POST">
-              <div class="form-row">
-                <label>
-                  Name
-                  <input name="name" type="text" autocomplete="name" placeholder="Your name" required />
-                </label>
-
-                <label>
-                  Email
-                  <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
-                </label>
-              </div>
-
-              <div class="form-row">
-                <label>
-                  Phone
-                  <input name="phone" type="tel" autocomplete="tel" placeholder="Optional" />
-                </label>
-
-                <label>
-                  Main goal
-                  <select name="goal" required>
-                    <option value="">Select one</option>
-                    <option>Build muscle</option>
-                    <option>Get stronger</option>
-                    <option>Powerlifting</option>
-                    <option>Bodybuilding</option>
-                    <option>General fitness</option>
-                    <option>Other</option>
-                  </select>
-                </label>
-              </div>
-
-              <label>
-                What would make Iron Krewe a gym you would join?
-                <textarea name="message" placeholder="Equipment, amenities, hours, coaching, pricing, community, etc."></textarea>
-              </label>
-
-              <input type="hidden" name="source" value="Iron Krewe landing page" />
-
-              <button class="btn btn-primary" type="submit">Submit Interest</button>
-              <p class="fine-print">No spam. Just launch updates, early access details, and founding membership info.</p>
-              <div class="success" id="successMsg" role="status">Thanks — your interest has been recorded.</div>
-            </form>
-          </section>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-inner">
-        <div><strong>Iron Krewe</strong> — New Tampa Strength Gym</div>
-        <div>Built for strength. Designed for progress.</div>
       </div>
-    </footer>
+    </section>
+
+    <section id="location">
+      <div class="container split">
+        <div class="location-card">
+          <div class="map-art" role="img" aria-label="Abstract New Tampa location map"></div>
+          <div class="location-body">
+            <h3>Coming to New Tampa</h3>
+            <p>
+              Iron Krewe is planned for the New Tampa area. Join the list to get location updates, opening details, and founding membership information first.
+            </p>
+          </div>
+        </div>
+
+        <div id="interest" class="form-card">
+          <h2>Join the interest list.</h2>
+          <p>
+            Want early updates, founding member pricing, and opening announcements? Drop your info below.
+          </p>
+
+          <!--
+            Static site form note:
+            Replace the action URL with your Formspree, Getform, Basin, Netlify Forms, or CRM endpoint.
+          -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel" placeholder="Optional" />
+            </label>
+
+            <label>
+              Main Training Goal
+              <select name="training_goal" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Strength training</option>
+                <option>Bodybuilding</option>
+                <option>Powerlifting</option>
+                <option>General fitness</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label>
+              What would you want most in a New Tampa gym?
+              <textarea name="message" placeholder="Tell us what equipment, features, or membership options you care about."></textarea>
+            </label>
+
+            <input type="hidden" name="source" value="Iron Krewe landing page" />
+            <button class="btn btn-primary" type="submit">Submit Interest</button>
+            <div class="fine-print">
+              By submitting, you agree to receive Iron Krewe updates. No spam. Unsubscribe anytime.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-cta">
+    <a class="btn btn-primary" href="#interest">Join Interest List</a>
   </div>
 
-  <script>
-    const form = document.querySelector('#interestForm');
-    const successMsg = document.querySelector('#successMsg');
-
-    form.addEventListener('submit', async function (event) {
-      const action = form.getAttribute('action');
-
-      event.preventDefault();
-      const data = new FormData(form);
-
-      try {
-        const response = await fetch(action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          form.reset();
-          successMsg.textContent = 'Thanks — your interest has been recorded.';
-          successMsg.classList.add('show');
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'iron_krewe_interest_submit' });
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        successMsg.textContent = 'Something went wrong. Please try again or check your form endpoint.';
-        successMsg.classList.add('show');
-      }
-    });
-  </script>
+  <footer class="footer">
+    <div class="container">
+      <strong>Iron Krewe</strong>
+      <span>New Tampa strength training gym. Built for serious lifters.</span>
+    </div>
+  </footer>
 </body>
 </html>
